@@ -690,30 +690,39 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(0, 86, 119, 0.18);
   border-radius: var(--radius);
   background: var(--line);
+  box-shadow:
+    0 18px 55px rgba(7, 25, 33, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .process-grid::before {
   content: '';
   position: absolute;
   z-index: 2;
-  top: 46px;
-  left: 47px;
-  right: 33px;
-  height: 3px;
-  border-radius: 999px;
+  top: 38px;
+  left: 46px;
+  right: 21px;
+  height: 18px;
   background: linear-gradient(
     90deg,
-    rgba(0, 86, 119, 0.38) 0%,
-    #005677 28%,
-    #0da3dd 66%,
+    #005677 0%,
+    #087793 34%,
+    #0da3dd 68%,
     #e2051b 100%
   );
-  box-shadow:
-    0 0 0 1px rgba(0, 86, 119, 0.04),
-    0 0 14px rgba(13, 163, 221, 0.2);
+  clip-path: polygon(
+    0 38%,
+    calc(100% - 24px) 38%,
+    calc(100% - 24px) 0,
+    100% 50%,
+    calc(100% - 24px) 100%,
+    calc(100% - 24px) 62%,
+    0 62%
+  );
+  filter: drop-shadow(0 4px 7px rgba(0, 86, 119, 0.16));
   pointer-events: none;
 }
 
@@ -721,14 +730,17 @@ img {
   content: '';
   position: absolute;
   z-index: 2;
-  top: 40px;
-  right: 22px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 11px solid var(--red);
-  filter: drop-shadow(0 2px 4px rgba(226, 5, 27, 0.2));
+  top: 45px;
+  left: 62px;
+  right: 50px;
+  height: 4px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.78) 0 15px,
+    rgba(255, 255, 255, 0.18) 15px 23px
+  );
+  opacity: 0.72;
   pointer-events: none;
 }
 
@@ -738,7 +750,7 @@ img {
   z-index: 1;
   min-height: 260px;
   padding: 30px;
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 70%, #fbfdfe 100%);
 }
 
 .process-card:nth-child(2) {
@@ -761,15 +773,25 @@ img {
   display: inline-grid;
   place-items: center;
   margin-bottom: 48px;
-  border: 2px solid var(--step-accent);
+  border: 1px solid color-mix(in srgb, var(--step-accent) 82%, white);
   border-radius: 50%;
-  background: white;
+  background: linear-gradient(145deg, #ffffff, #f4fafc);
   color: var(--step-accent);
+  outline: 6px solid white;
   box-shadow:
-    0 0 0 6px white,
-    0 8px 22px rgba(7, 25, 33, 0.13);
-  font-size: 0.76rem;
+    0 0 0 2px color-mix(in srgb, var(--step-accent) 16%, transparent),
+    0 9px 24px rgba(7, 25, 33, 0.13);
+  font-size: 0.72rem;
   font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.process-card:nth-child(4) > span {
+  background: linear-gradient(145deg, #ffffff, #fff3f5);
+  box-shadow:
+    0 0 0 2px rgba(226, 5, 27, 0.13),
+    0 9px 24px rgba(226, 5, 27, 0.14);
 }
 
 .eligibility-strip {
@@ -1392,28 +1414,40 @@ img {
   .process-grid::before {
     top: 47px;
     right: auto;
-    bottom: 33px;
-    left: 43px;
-    width: 3px;
+    bottom: 22px;
+    left: 35px;
+    width: 18px;
     height: auto;
     background: linear-gradient(
       180deg,
-      rgba(0, 86, 119, 0.38) 0%,
-      #005677 28%,
-      #0da3dd 66%,
+      #005677 0%,
+      #087793 34%,
+      #0da3dd 68%,
       #e2051b 100%
+    );
+    clip-path: polygon(
+      38% 0,
+      62% 0,
+      62% calc(100% - 24px),
+      100% calc(100% - 24px),
+      50% 100%,
+      0 calc(100% - 24px),
+      38% calc(100% - 24px)
     );
   }
 
   .process-grid::after {
-    top: auto;
+    top: 65px;
     right: auto;
-    bottom: 22px;
-    left: 37px;
-    border-top: 11px solid var(--red);
-    border-right: 7px solid transparent;
-    border-bottom: 0;
-    border-left: 7px solid transparent;
+    bottom: 52px;
+    left: 42px;
+    width: 4px;
+    height: auto;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.78) 0 15px,
+      rgba(255, 255, 255, 0.18) 15px 23px
+    );
   }
 
   .process-card {
@@ -1541,11 +1575,11 @@ img {
   }
 
   .process-grid::before {
-    left: 38px;
+    left: 30px;
   }
 
   .process-grid::after {
-    left: 32px;
+    left: 37px;
   }
 
   .cta-panel,
