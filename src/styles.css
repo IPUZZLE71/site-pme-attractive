@@ -700,6 +700,7 @@ img {
 
 .process-grid::before {
   content: '';
+  display: none;
   position: absolute;
   z-index: 2;
   top: 50px;
@@ -728,6 +729,7 @@ img {
 
 .process-grid::after {
   content: '';
+  display: none;
   position: absolute;
   z-index: 2;
   top: 57px;
