@@ -64,6 +64,33 @@ const companies = [
   'SIEM SERVICES',
 ];
 
+const companyLogos: Record<string, string> = {
+  AEROMETAL:
+    'https://www.google.com/s2/favicons?domain_url=https://www.aerometal.fr&sz=256',
+  ALPM:
+    'https://www.google.com/s2/favicons?domain_url=https://alpm-laser.com&sz=256',
+  'DC MOTOR':
+    'https://www.google.com/s2/favicons?domain_url=https://dc-motor.fr&sz=256',
+  ESCOFIER:
+    'https://www.google.com/s2/favicons?domain_url=https://www.escofier.com&sz=256',
+  'GROUPE SEEB':
+    'https://www.google.com/s2/favicons?domain_url=https://www.groupeseeb.com&sz=256',
+  HYDROPROCESS:
+    'https://www.google.com/s2/favicons?domain_url=https://hydroprocess.fr&sz=256',
+  PROTOFORM:
+    'https://www.google.com/s2/favicons?domain_url=https://www.protoform-bourgogne.fr&sz=256',
+  'PUGET PRODUCTION MÉCANIQUE':
+    'https://www.google.com/s2/favicons?domain_url=https://ppm.tech&sz=256',
+  'SEI GROUPE':
+    'https://www.google.com/s2/favicons?domain_url=https://seigroupe.com&sz=256',
+  'SETFORGE LA CLAYETTE':
+    'https://www.google.com/s2/favicons?domain_url=https://www.farinia.com/setforge/la-clayette&sz=256',
+  SICAP:
+    'https://www.google.com/s2/favicons?domain_url=https://www.sicap.fr&sz=256',
+  'SIEM SERVICES':
+    'https://www.google.com/s2/favicons?domain_url=https://www.siem-services.fr&sz=256',
+};
+
 const news = [
   {
     date: '09.02.2026',
@@ -649,7 +676,14 @@ function CompaniesPage() {
                 <span className="company-index">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <Factory size={22} />
+                <div className="company-logo">
+                  <img
+                    src={companyLogos[company]}
+                    alt={`Logo ${company}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 <h3>{company}</h3>
                 <span className="company-badge">
                   <ShieldCheck size={14} />

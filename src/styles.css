@@ -929,9 +929,20 @@ img {
   background: white;
 }
 
-.company-card > svg {
-  margin: 34px 0 18px;
-  color: var(--blue);
+.company-logo {
+  width: 100%;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 28px 0 18px;
+}
+
+.company-logo img {
+  width: auto;
+  max-width: 150px;
+  max-height: 72px;
+  object-fit: contain;
 }
 
 .company-card h3 {
