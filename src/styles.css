@@ -699,26 +699,36 @@ img {
   content: '';
   position: absolute;
   z-index: 2;
-  top: 45px;
-  left: 48px;
-  right: 34px;
-  height: 14px;
+  top: 46px;
+  left: 47px;
+  right: 33px;
+  height: 3px;
+  border-radius: 999px;
   background: linear-gradient(
     90deg,
-    rgba(0, 86, 119, 0.24) 0%,
-    #005677 32%,
+    rgba(0, 86, 119, 0.38) 0%,
+    #005677 28%,
     #0da3dd 66%,
     #e2051b 100%
   );
-  clip-path: polygon(
-    0 32%,
-    calc(100% - 18px) 32%,
-    calc(100% - 18px) 0,
-    100% 50%,
-    calc(100% - 18px) 100%,
-    calc(100% - 18px) 68%,
-    0 68%
-  );
+  box-shadow:
+    0 0 0 1px rgba(0, 86, 119, 0.04),
+    0 0 14px rgba(13, 163, 221, 0.2);
+  pointer-events: none;
+}
+
+.process-grid::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 40px;
+  right: 22px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--red);
+  filter: drop-shadow(0 2px 4px rgba(226, 5, 27, 0.2));
   pointer-events: none;
 }
 
@@ -755,7 +765,9 @@ img {
   border-radius: 50%;
   background: white;
   color: var(--step-accent);
-  box-shadow: 0 0 0 6px white;
+  box-shadow:
+    0 0 0 6px white,
+    0 8px 22px rgba(7, 25, 33, 0.13);
   font-size: 0.76rem;
   font-weight: 900;
 }
@@ -1378,28 +1390,30 @@ img {
   }
 
   .process-grid::before {
-    top: 48px;
+    top: 47px;
     right: auto;
-    bottom: 34px;
-    left: 44px;
-    width: 14px;
+    bottom: 33px;
+    left: 43px;
+    width: 3px;
     height: auto;
     background: linear-gradient(
       180deg,
-      rgba(0, 86, 119, 0.24) 0%,
-      #005677 32%,
+      rgba(0, 86, 119, 0.38) 0%,
+      #005677 28%,
       #0da3dd 66%,
       #e2051b 100%
     );
-    clip-path: polygon(
-      32% 0,
-      68% 0,
-      68% calc(100% - 18px),
-      100% calc(100% - 18px),
-      50% 100%,
-      0 calc(100% - 18px),
-      32% calc(100% - 18px)
-    );
+  }
+
+  .process-grid::after {
+    top: auto;
+    right: auto;
+    bottom: 22px;
+    left: 37px;
+    border-top: 11px solid var(--red);
+    border-right: 7px solid transparent;
+    border-bottom: 0;
+    border-left: 7px solid transparent;
   }
 
   .process-card {
@@ -1527,7 +1541,11 @@ img {
   }
 
   .process-grid::before {
-    left: 39px;
+    left: 38px;
+  }
+
+  .process-grid::after {
+    left: 32px;
   }
 
   .cta-panel,
