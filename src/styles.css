@@ -684,6 +684,8 @@ img {
 }
 
 .process-grid {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
@@ -693,16 +695,68 @@ img {
   background: var(--line);
 }
 
+.process-grid::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 45px;
+  left: 48px;
+  right: 34px;
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 86, 119, 0.24) 0%,
+    #005677 32%,
+    #0da3dd 66%,
+    #e2051b 100%
+  );
+  clip-path: polygon(
+    0 32%,
+    calc(100% - 18px) 32%,
+    calc(100% - 18px) 0,
+    100% 50%,
+    calc(100% - 18px) 100%,
+    calc(100% - 18px) 68%,
+    0 68%
+  );
+  pointer-events: none;
+}
+
 .process-card {
+  --step-accent: var(--blue);
+  position: relative;
+  z-index: 1;
   min-height: 260px;
   padding: 30px;
   background: white;
 }
 
+.process-card:nth-child(2) {
+  --step-accent: #087393;
+}
+
+.process-card:nth-child(3) {
+  --step-accent: var(--cyan);
+}
+
+.process-card:nth-child(4) {
+  --step-accent: var(--red);
+}
+
 .process-card > span {
-  display: inline-block;
-  margin-bottom: 65px;
-  color: var(--red);
+  position: relative;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 48px;
+  border: 2px solid var(--step-accent);
+  border-radius: 50%;
+  background: white;
+  color: var(--step-accent);
+  box-shadow: 0 0 0 6px white;
+  font-size: 0.76rem;
   font-weight: 900;
 }
 
@@ -1320,7 +1374,44 @@ img {
   }
 
   .process-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid::before {
+    top: 48px;
+    right: auto;
+    bottom: 34px;
+    left: 44px;
+    width: 14px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 86, 119, 0.24) 0%,
+      #005677 32%,
+      #0da3dd 66%,
+      #e2051b 100%
+    );
+    clip-path: polygon(
+      32% 0,
+      68% 0,
+      68% calc(100% - 18px),
+      100% calc(100% - 18px),
+      50% 100%,
+      0 calc(100% - 18px),
+      32% calc(100% - 18px)
+    );
+  }
+
+  .process-card {
+    min-height: 180px;
+    padding-left: 92px;
+  }
+
+  .process-card > span {
+    position: absolute;
+    top: 30px;
+    left: 27px;
+    margin: 0;
   }
 
   .eligibility-strip {
@@ -1427,11 +1518,16 @@ img {
   }
 
   .process-card {
-    min-height: 220px;
+    min-height: 190px;
+    padding-left: 82px;
   }
 
   .process-card > span {
-    margin-bottom: 38px;
+    left: 22px;
+  }
+
+  .process-grid::before {
+    left: 39px;
   }
 
   .cta-panel,
